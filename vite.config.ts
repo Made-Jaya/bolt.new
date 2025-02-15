@@ -125,6 +125,9 @@ export default defineConfig((config) => {
         },
       },
     },
+    server: {
+      allowedHosts: ['bolt.maleh.my.id'],
+    },
   };
 });
 
