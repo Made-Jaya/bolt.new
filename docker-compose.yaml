@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
       target: bolt-ai-production
     ports:
-      - '5173:5173'
+      - '80:80'
     env_file: '.env.local'
     environment:
       - NODE_ENV=production
@@ -76,12 +76,12 @@ services:
   app-prebuild:
     image: ghcr.io/stackblitz-labs/bolt.diy:latest
     ports:
-      - '5173:5173'
+      - '80:80'
     environment:
       - NODE_ENV=production
       - COMPOSE_PROFILES=production
       # No strictly needed but serving as hints for Coolify
-      - PORT=5173
+      - PORT=80
       - OLLAMA_API_BASE_URL=http://127.0.0.1:11434
       - DEFAULT_NUM_CTX=${DEFAULT_NUM_CTX:-32768}
       - RUNNING_IN_DOCKER=true
